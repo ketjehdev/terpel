@@ -7,7 +7,7 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <!-- Brand -->
-      <a class="navbar-brand pt-0" href="./index.html">
+      <a class="navbar-brand pt-0" href="{{ route('home') }}">
         <h4>Terpel</h4>
       </a>
       <!-- User -->
@@ -24,7 +24,7 @@
             <div class=" dropdown-header noti-title">
               <h6 class="text-overflow m-0">Halo!</h6>
             </div>
-            <a href="./examples/profile.html" class="dropdown-item">
+            <a href="{{ route('myProfil') }}" class="dropdown-item">
               <i class="ni ni-single-02"></i>
               <span>My profile</span>
             </a>
@@ -63,8 +63,8 @@
 
         <!-- Navigation -->
         <ul class="navbar-nav">
-          <li class="nav-item  active ">
-            <a class="nav-link  active " href="./index.html">
+          <li class="nav-item @if($title == 'dashboard') active @endif">
+            <a class="nav-link @if($title == 'dashboard') active @endif" href="{{ route('home') }}">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
@@ -78,8 +78,8 @@
               <i class="ni ni-pin-3 text-orange"></i> Maps
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="./examples/profile.html">
+          <li class="nav-item @if($title == 'My Profil') active @endif">
+            <a class="nav-link @if($title == 'My Profil') active @endif" href="{{ route('myProfil') }}">
               <i class="ni ni-single-02 text-yellow"></i> User profile
             </a>
           </li>

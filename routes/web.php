@@ -13,5 +13,7 @@ Route::post('/logoutHandle', [AuthController::class, 'logout_handle'])->name('lo
 Route::middleware('auth')->group(function () {
     Route::prefix('terpel')->group(function () {
         Route::get('/home', [WebController::class, 'home'])->name('home');
+        Route::get('/myProfil', [WebController::class, 'myProfil'])->name('myProfil');
+        Route::post('/updateProfil', [WebController::class, 'updateProfil'])->name('updateProfil');
     });
 });

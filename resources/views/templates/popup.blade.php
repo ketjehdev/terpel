@@ -9,5 +9,17 @@
         // timer: 2000,
         // timerProgressBar: true,
     });
+</script> 
+@endif   
+
+@if (session()->has('success'))
+<script>
+    Swal.fire({
+        icon: 'success',
+        title: 'Perhatian',
+        text: "{{ session('success') }}",
+        // timer: 2000,
+        // timerProgressBar: true,
+    });
 </script>    
 @endif
