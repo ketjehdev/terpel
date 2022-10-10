@@ -34,7 +34,7 @@ class AuthController extends Controller
             return redirect()->route('home');
         }
 
-        return redirect()->back()->with('gagal', 'Email atau password salah!');
+        return redirect()->back()->with('gagal', 'NIS atau password salah!');
     }
 
     public function logout_handle()

@@ -1,14 +1,22 @@
-@extends('layout.app')
-@section('title'){{ $title }}@endsection
 @php
-    date_default_timezone_set('Asia/Jakarta');
-    $year = date('Y', strtotime('now'));
+date_default_timezone_set('Asia/Jakarta');
+$year = date('Y', strtotime('now'));
 @endphp
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{{ $title }}</title>
+    <link rel="stylesheet" href="{{ asset('css/font.css') }}">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css">
+   
+</head>
+<body>
 
-
-@section('content')
     <div class="container-fluid">
-        <div class="row p-xl-5 p-3 justify-content-center align-items-center" style="background-image: radial-gradient(circle at 12% 55%,rgba(33,150,243,.15),hsla(0,0%,100%,0) 25%),radial-gradient(circle at 85% 33%,rgba(108,99,255,.175),hsla(0,0%,100%,0)   25%); height: 100vh">
+        <div class="row bg-info p-xl-5 p-3 justify-content-center align-items-center" style="height: 100vh">
            <div class="col-12 col-xl-10">
             <div class="row p-0 rounded" style="background: #fff; height: 75vh; box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
                 <div class="col-xl-6 d-flex flex-column justify-content-center align-items-center p-4">
@@ -57,4 +65,8 @@
            </div>
         </div>
     </div>
-@endsection
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js"></script>
+    @include('templates.popup')
+</body>
+</html>

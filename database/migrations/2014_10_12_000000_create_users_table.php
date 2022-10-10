@@ -18,7 +18,8 @@ return new class extends Migration
             $table->string('username');
             $table->string('nis');
             $table->string('password');
-            $table->rememberToken();
+            $table->enum('role', ['admin', 'siswa']);
+            $table->string('gambar');
             $table->timestamps();
         });
     }

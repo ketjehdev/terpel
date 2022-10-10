@@ -20,6 +20,8 @@ class UserSeeder extends Seeder
             'username' => 'Neville Jeremy Onorato Laia',
             'nis' => '206765',
             'password' => bcrypt('206765'),
+            'role' => 'admin',
+            'gambar' => 'default.png',
         ]);
     }
 }
