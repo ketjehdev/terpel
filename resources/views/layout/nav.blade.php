@@ -16,7 +16,7 @@
           <a class="nav-link" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             <div class="media align-items-center">
               <span class="avatar avatar-sm rounded-circle">
-                <img alt="Image placeholder" src="./assets/img/theme/team-1-800x800.jpg">
+                <img alt="Image placeholder" src="{{ asset('img/profil_picture/'.auth()->user()->gambar) }}">
               </span>
             </div>
           </a>
@@ -26,7 +26,7 @@
             </div>
             <a href="{{ route('myProfil') }}" class="dropdown-item">
               <i class="ni ni-single-02"></i>
-              <span>My profile</span>
+              <span>Profilku</span>
             </a>
 
             <div class="dropdown-divider"></div>
@@ -47,10 +47,11 @@
         <div class="navbar-collapse-header d-md-none">
           <div class="row">
             <div class="col-6 collapse-brand">
-              <a href="./index.html">
-                <img src="./assets/img/brand/blue.png">
+              <a href="{{ route('home') }}">
+                <h4>Terpel.</h4>
               </a>
             </div>
+
             <div class="col-6 collapse-close">
               <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#sidenav-collapse-main"
                 aria-controls="sidenav-main" aria-expanded="false" aria-label="Toggle sidenav">
@@ -63,31 +64,37 @@
 
         <!-- Navigation -->
         <ul class="navbar-nav">
-          <li class="nav-item @if($title == 'dashboard') active @endif">
-            <a class="nav-link @if($title == 'dashboard') active @endif" href="{{ route('home') }}">
+          <li class="nav-item @if($page == 'dash') active @endif">
+            <a class="nav-link @if($page == 'dash') active @endif" href="{{ route('home') }}">
               <i class="ni ni-tv-2 text-primary"></i> Dashboard
             </a>
           </li>
+          <li class="nav-item @if($page == 'mu') active @endif">
+            <a class="nav-link @if($page == 'mu') active @endif" href="{{ route('manageUsers') }}">
+              <i class="fa fa-user-plus text-blue"></i> 
+              Manage Users
+            </a>
+          </li>
+
           <li class="nav-item">
-            <a class="nav-link " href="./examples/icons.html">
-              <i class="ni ni-planet text-blue"></i> Icons
+            <a class="nav-link" href="./examples/maps.html">
+              <i class="fa fa-book text-orange"></i> Manage Materi
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="./examples/maps.html">
-              <i class="ni ni-pin-3 text-orange"></i> Maps
+
+          <li class="nav-item @if($page == 'cp') active @endif">
+            <a class="nav-link @if($page == 'cp') active @endif" href="{{ route('changePassword') }}">
+              <i class="fa fa-key text-yellow"></i> Ganti Password
             </a>
           </li>
-          <li class="nav-item @if($title == 'My Profil') active @endif">
-            <a class="nav-link @if($title == 'My Profil') active @endif" href="{{ route('myProfil') }}">
-              <i class="ni ni-single-02 text-yellow"></i> User profile
+
+          
+          <li class="nav-item @if($page == 'mp') active @endif">
+            <a class="nav-link @if($page == 'mp') active @endif" href="{{ route('myProfil') }}">
+              <i class="ni ni-single-02 text-success"></i> Profilku
             </a>
           </li>
-          <li class="nav-item">
-            <a class="nav-link " href="./examples/tables.html">
-              <i class="ni ni-bullet-list-67 text-red"></i> Tables
-            </a>
-          </li>
+
         </ul>
       </div>
     </div>

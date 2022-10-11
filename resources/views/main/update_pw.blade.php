@@ -7,17 +7,16 @@
       <span class="mask bg-gradient-default opacity-8"></span>
       <div class="container-fluid d-flex align-items-center">
         <div class="row">
-          <div class="col-lg-7 col-md-10">
-            <h1 class="display-2 text-white">Halo, {{ ucfirst(auth()->user()->username) }}</h1>
-            <p class="text-white mt-0 mb-5">Halaman manajemen profil pribadi kamu. sesuaikan data kamu, Jangan sampai melakukan kesalahan.</p>
-            <a href="#form" class="btn btn-info">Edit profile</a>
-          </div>
+          <div class="col-lg-10 col-md-10">
+            <h1 class="display-2 text-white">Change Password</h1>
+            <p class="text-white">Password akan diubah permanen jika telah melakukan perubahan pada password.</p>
+        </div>
         </div>
       </div>
     </div>
 
     <!-- Page content -->
-    <div class="container-fluid mt--7">
+    <div class="container-fluid mt--8">
       <div class="row" id="form">
         <div class="col-xl-4 order-xl-2 mb-5 mb-xl-0">
           <div class="card card-profile shadow">
@@ -51,51 +50,54 @@
             <div class="card-header bg-white border-0">
               <div class="row align-items-center">
                 <div class="col-8">
-                  <h3 class="mb-0">My account</h3>
-                </div>
-                <div class="col-4 text-right">
-                  <a href="{{ route('changePassword') }}" class="btn btn-sm btn-primary">Ubah Password</a>
+                  <h3 class="mb-0">Ganti Password</h3>
                 </div>
               </div>
             </div>
-
             <div class="card-body">
-              <form action="/terpel/updateProfil" method="POST">
+              <form action="/terpel/update_password" method="POST">
+                @method('PUT')
                 @csrf
+              
                 <div class="pl-lg-4">
                   <div class="row">
                     <div class="col-lg-12">
                       <div class="form-group">
-                        <label class="form-control-label" for="input-username">Username</label>
-                        <input type="text" name="username" id="input-username" class="form-control @error('username') is-invalid @enderror form-control-alternative" placeholder="Username" value="{{ auth()->user()->username }}">
-                        @error('username')
+                        <label class="form-control-label" for="input-current_password">Password Lama:</label>
+                        <input type="text" name="current_password" id="input-current_password" class="form-control @error('current_password') is-invalid @enderror form-control-alternative" placeholder="Masukkan Password Lama">
+                        @error('current_password')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    </div>
+
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Password Baru:</label>
+                        <input type="text" name="password" class="form-control form-control-alternative" placeholder="Password Baru">
+                        @error('password')
+                            <p class="text-danger">{{ $message }}</p>
+                        @enderror
+                    </div>
+                    </div>
+                    
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label class="form-control-label">Konfirmasi Password Baru:</label>
+                        <input type="text" name="password_confirmation" class="form-control form-control-alternative" placeholder="Konfirmasi Password Baru">
+                        @error('password_confirmation')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
                     </div>
                     </div>
 
                     <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label">NIP</label>
-                        <input type="text" disabled class="form-control form-control-alternative" value="{{ auth()->user()->nis }}">
-                      </div>
-                    </div>
-                    
-                    <div class="col-lg-6">
-                      <div class="form-group">
-                        <label class="form-control-label">ROLE:</label>
-                        <input type="text" class="form-control form-control-alternative" value="{{ ucfirst(auth()->user()->role) }}" disabled>
-                      </div>
-                    </div>
-
-                    <div class="col-lg-6">
-                        <button type="submit" class="btn btn-primary">Update Profil</button>
+                        <button type="submit" class="btn btn-primary">Ganti Password</button>
                     </div>
                   </div>
                 </div>
               </form>
             </div>
-
           </div>
         </div>
       </div>
